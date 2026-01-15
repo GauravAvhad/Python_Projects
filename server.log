@@ -1,0 +1,6 @@
+2026-01-08 10:00:01 INFO User user1 logged in.
+2026-01-08 10:05:22 ERROR Failed to connect to database.
+2026-01-08 10:10:00 WARNING High memory usage.
+2026-01-08 10:15:45 ERROR Payment gateway timeout.
+2026-01-08 10:20:00 INFO User user2 logged out.
+2026-01-08 10:22:00 ERROR 404 Page not found.
