@@ -1,0 +1,4 @@
+google-genai
+cryptography
+beautifulsoup4
+requests

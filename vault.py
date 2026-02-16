@@ -40,8 +40,8 @@ elif choice == "2":
 
         # 2. Decrypt it! (Turn Bytes back into Text)
         try:
-            decrypted_date = cipher.decrypt(encrypted_data).decode()
-            print(f"🔓 Your Decrypted Secret is: {decrypted_date}")   
+            decrypted_data = cipher.decrypt(encrypted_data).decode()
+            print(f"🔓 Your Decrypted Secret is: {decrypted_data}")   
         except:
             print("❌ Error: Key mismatch. Cannot decrypt.")    
 
