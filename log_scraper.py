@@ -9,10 +9,7 @@ API_KEY = "YOUR_API_KEY_HERE"
 
 # Setup the Client
 client = genai.Client(api_key=API_KEY)
-
-# Use the model that worked for you before
 model_name = "gemini-2.0-flash"
-
 log_pattern = r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) ERROR (.*)"
 
 print("--- 🤖 AI LOG AUDITOR STARTING  ---")
@@ -21,7 +18,7 @@ print("--- ⏳ SCANNING LOGS... ---")
 # Open a new CSV file to save the report
 with open("error_report_ai.csv", "w", newline="", encoding='utf-8') as file:
     writer = csv.writer(file)
-    writer.writerow(["Timestamp", "Error Message", "AI Explanation"])
+    writer.writerow(["Timestamp", "Error Message", "AI Explanation & Remediation"])
 
     try:
         with open("server.log", "r", encoding='utf-8') as log_file:
@@ -38,19 +35,21 @@ with open("error_report_ai.csv", "w", newline="", encoding='utf-8') as file:
                     try:
                         # Check if it's a real key (longer than 20 chars)
                         if len(API_KEY) > 20:
-                            print("   ... Asking AI for help ...")
+                            print("   ... Asking AI for root cause analysis ...")
+                            ai_prompt = f"Categorize this error. Then provide a 1-sentence explanation and 1 suggested remediation step to fix it: {message}"
+                            
                             response = client.models.generate_content(
                                 model=model_name,
-                                contents=f"Explain this server error in 1 short sentence: {message}"
+                                contents=ai_prompt
                             )
                             explanation = response.text
-                            print(f"   🤖 AI Says: {explanation}")
+                            print(f"  🤖 AI Says: {explanation}")
                         else:
-                            print("   ℹ️ Skipped AI (Placeholder key detected)")
+                            print("  ℹ️ Skipped AI (Placeholder key detected)")
 
                     except Exception as e:
                         explanation = f"AI Error: {str(e)}"
-                        print(f"   ⏳ Could not get AI response: {e}")
+                        print(f"  ⏳ Could not get AI response: {e}")
 
                     # Write to CSV
                     writer.writerow([timestamp, message, explanation])

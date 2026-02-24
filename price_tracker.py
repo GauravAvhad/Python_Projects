@@ -1,28 +1,28 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import random # --- NEW: We need this to pick a random User-Agent ---
+import random 
 
 url = "http://books.toscrape.com/"
 
-# --- NEW: List of fake browser ID badges (User-Agents) ---
+# --- List of fake browser ID badges (User-Agents) ---
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0"
 ]
 
-# --- NEW: Randomly pick one User-Agent from the list ---
+# Randomly pick one User-Agent from the list
 random_agent = random.choice(USER_AGENTS)
 
-# --- NEW: Package it into a "Headers" dictionary to send to the website ---
+# Package it into a "Headers" dictionary to send to the website
 headers = {
     "User-Agent": random_agent
 }
 
 print(f"🕵️ Disguising script as: {random_agent[:50]}...")
 
-# 1. Get the HTML (Now passing the headers to bypass anti-bot detection!)
+# 1. Get the HTML (Passing the headers to bypass anti-bot detection)
 response = requests.get(url, headers=headers)
 response.encoding = "utf-8"
 
