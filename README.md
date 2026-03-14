@@ -27,7 +27,7 @@ An end-to-end Extract, Transform, Load (ETL) data pipeline that tracks competito
 An automated log parsing tool that processes server logs using advanced Regex patterns to detect and diagnose system failures.
 
 - **Tech Stack:** Python 3.12, Google Gemini GenAI API, Regex
-- **Architecture & Features:** \* Replaces manual log tailing by hunting specific error flags (e.g., 404/500).
+- **Architecture & Features:** - Replaces manual log tailing by hunting specific error flags (e.g., 404/500).
   - Integrates Large Language Models (LLMs) via REST API to provide automated Root Cause Analysis (RCA) on server errors, drastically reducing manual L2 triage time.
 
 ### 3. SecureVault - Encrypted Password Management
@@ -35,7 +35,7 @@ An automated log parsing tool that processes server logs using advanced Regex pa
 A secure Command Line Interface (CLI) credential manager implementing AES-256 symmetric encryption.
 
 - **Tech Stack:** Python 3.12, Cryptography (Fernet), File I/O
-- **Architecture & Features:** \* Utilizes zero-knowledge architecture and secure file I/O to ensure credentials are never exposed in plain text.
+- **Architecture & Features:** - Utilizes zero-knowledge architecture and secure file I/O to ensure credentials are never exposed in plain text.
   - Implements full CRUD (Create, Read, Update, Delete) operations with robust error handling for a seamless terminal user experience.
 
 ---
