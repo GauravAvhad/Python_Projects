@@ -20,7 +20,6 @@ An end-to-end Extract, Transform, Load (ETL) data pipeline that tracks competito
   - **Load:** Stores structured data into a relational **SQLite database** using parameterized queries to prevent SQL injection.
   - **Visualize:** Generates automated, dynamic bar charts using **Matplotlib** for rapid market analysis.
 
-_(Note: Upload the chart image you generated earlier to your GitHub repo, and put the image link right here so recruiters see the graph immediately!)_
 ![Market Analysis Chart](chart.png)
 
 ### 2. AI-Powered Log Auditor & Analytics System
