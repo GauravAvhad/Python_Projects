@@ -2,3 +2,6 @@ google-genai
 cryptography
 beautifulsoup4
 requests
+fastapi
+uvicorn
+pydantic

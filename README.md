@@ -22,14 +22,14 @@ An end-to-end Extract, Transform, Load (ETL) data pipeline that tracks competito
 
 ![Market Analysis Chart](chart.png)
 
-### 2. AI-Powered Log Auditor & Analytics System
+### 2. AI-Powered Log Auditor & REST API
 
-An automated log parsing tool that processes server logs using advanced Regex patterns to detect and diagnose system failures.
+An automated log parsing system that utilizes advanced Regex to detect system failures and leverages GenAI to perform Root Cause Analysis (RCA). Evolved from a local CLI script into a fully functional web service.
 
-- **Tech Stack:** Python 3.12, Google Gemini GenAI API, Regex
+- **Tech Stack:** Python 3.12, FastAPI, Pydantic, Google Gemini GenAI API, Regex
 - **Architecture & Features:**
-  - Replaces manual log tailing by hunting specific error flags (e.g., 404/500).
-  - Integrates Large Language Models (LLMs) via REST API to provide automated Root Cause Analysis (RCA) on server errors, drastically reducing manual L2 triage time.
+  - **Version 1 (CLI):** Processes local `.log` files and generates structured CSV reports for batch analysis.
+  - **Version 2 (REST API):** An enterprise-grade endpoint (`/api/v1/audit-log`) built with **FastAPI**. It securely accepts raw server logs via POST requests, validates the payload, and instantly returns AI-categorized JSON error reports for downstream monitoring dashboards.
 
 ### 3. SecureVault - Encrypted Password Management
 
@@ -45,6 +45,7 @@ A secure Command Line Interface (CLI) credential manager implementing AES-256 sy
 ## 🛠️ Technical Capabilities
 
 - **Core:** Python 3.12, SQL, Java
-- **Data Engineering:** ETL Pipelines, Relational Databases (SQLite), Data Visualization (Matplotlib), Web Scraping (BeautifulSoup4)
+- **Backend & APIs:** FastAPI, RESTful API Development, Pydantic, JSON
+- **Data Engineering:** ETL Pipelines, Relational Databases (SQLite), Web Scraping (BeautifulSoup4), Data Visualization (Matplotlib)
 - **Automation & Ops:** Regex Log Parsing, File I/O, Automated Workflows, Splunk/AWS CloudWatch concepts
 - **Security:** AES-256 Encryption, Parameterized SQL Queries, Secure API Integration
